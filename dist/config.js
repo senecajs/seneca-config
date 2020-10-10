@@ -15,6 +15,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 /* $lab:coverage:on$ */
+// TODO: caching, info msgs to clear cache
 const config_doc_1 = __importDefault(require("./config-doc"));
 module.exports = config;
 module.exports.defaults = {};
@@ -25,22 +26,88 @@ function config(options) {
     const kindmap = {};
     seneca
         .fix('sys:config')
-        .message('set:resolve', set_resolve)
+        .message('set:kind', set_kind)
+        .message('get:kindmap', get_kindmap)
         .message('set:config', set_config)
         .message('get:config', get_config);
-    function set_resolve() {
+    // TODO: Joi validation
+    function set_kind(msg) {
         return __awaiter(this, void 0, void 0, function* () {
-            return {};
+            let kind = msg.kind;
+            let merge = msg.merge;
+            let sourcemap = msg.sourcemap;
+            let cs = {
+                kind,
+                merge,
+                sourcemap
+            };
+            kindmap[cs.kind] = cs;
+            // TODO: clear cache, update msgs to clear cache
+            return { ok: true, kindmap: this.util.deep(kindmap) };
         });
     }
-    function get_config() {
+    function get_kindmap() {
         return __awaiter(this, void 0, void 0, function* () {
-            return {};
+            return { ok: true, kindmap: this.util.deep(kindmap) };
         });
     }
-    function set_config() {
+    function get_config(msg) {
         return __awaiter(this, void 0, void 0, function* () {
-            return {};
+            let kind = msg.kind;
+            let sourcemap = msg.sourcemap;
+            let configmap = msg.configmap;
+            let cs = kindmap[kind];
+            if (null == cs) {
+                return { ok: false, why: 'unknown-kind', kind: kind };
+            }
+            let merge = cs.merge;
+            let config = this.util.deep({}, configmap.pre);
+            for (let sourcename of merge) {
+                // TODO: aliases, null checks
+                let entry = yield this.entity('sys/config').load$({
+                    kind: kind,
+                    [sourcename]: sourcemap[sourcename]
+                });
+                if (null != entry) {
+                    config = this.util.deep(config, entry.config);
+                }
+            }
+            config = this.util.deep(config, configmap.post);
+            return { ok: true, config };
+        });
+    }
+    function set_config(msg) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let kind = msg.kind;
+            let source = msg.source;
+            let config = msg.config;
+            let cs = kindmap[kind];
+            if (null == cs) {
+                return { ok: false, why: 'unknown-kind', kind: kind };
+            }
+            let sourcename = Object.keys(source)[0];
+            let sourcevalue = source[sourcename];
+            let csrc = cs.sourcemap[sourcename];
+            if (null == csrc) {
+                return { ok: false, why: 'unknown-source', kind: kind, source: sourcename };
+            }
+            if ('id' === csrc.kind) {
+                // resolve alias, if any
+            }
+            // TODO: entity really needs an upsert op!
+            let entry = yield this.entity('sys/config').load$({
+                kind: kind,
+                [sourcename]: sourcevalue
+            });
+            if (null == entry) {
+                entry = this.entity('sys/config').make$();
+            }
+            entry.kind = kind;
+            entry[sourcename] = sourcevalue;
+            entry.config = msg.config;
+            entry = yield entry.save$();
+            // TODO: update cache, update msgs to clear cache
+            return { ok: true, config: entry };
         });
     }
     return {};

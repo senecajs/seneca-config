@@ -540,7 +540,7 @@
             <a href="#dist/config-doc.js"><span class="dirname">dist/</span><span class="basename">config-doc.js</span></a>
         </li>
         <li class="generated">
-            <span class="cov high">100</span>
+            <span class="cov high">92.38</span>
             <a href="#dist/config.js"><span class="dirname">dist/</span><span class="basename">config.js</span></a>
         </li>
         <li><a href="#linting">Linting Report</a></li>
@@ -551,7 +551,7 @@
           <div class="failures">0</div>
           <div class="skipped">0</div>
           <div class="test-count">4</div>
-          <div class="duration">463</div>
+          <div class="duration">400</div>
       </div>
       <div id="filters">
           <input type="checkbox" checked="" onchange="filter(this)" value="success" id="show-success">
@@ -574,14 +574,14 @@
               <td class="test-title">validate
                   
               </td>
-              <td class="test-duration">7</td>
+              <td class="test-duration">4</td>
           </tr>
           <tr class="show  success">
               <td class="test-id">2</td>
               <td class="test-title">plugin-load
                   
               </td>
-              <td class="test-duration">291</td>
+              <td class="test-duration">210</td>
           </tr>
           <tr class="show  success">
               <td class="test-id">3</td>
@@ -595,7 +595,7 @@
               <td class="test-title">messages
                   
               </td>
-              <td class="test-duration">163</td>
+              <td class="test-duration">177</td>
           </tr>
           </tbody>
       </table>
@@ -603,10 +603,10 @@
     </div>    <div id="coverage">
         <h1>Code Coverage Report</h1>
         <div class="stats high">
-            <div class="percentage">100%</div>
-            <div class="sloc">52</div>
-            <div class="hits">52</div>
-            <div class="misses">0</div>
+            <div class="percentage">92.86%</div>
+            <div class="sloc">112</div>
+            <div class="hits">104</div>
+            <div class="misses">8</div>
         </div>
         <div id="filters">
           <input type="checkbox" checked="" onchange="filter(this)" value="generated" id="show-generated">
@@ -686,10 +686,10 @@
             <div class="file show generated">
                 <h2 id="dist/config.js">dist/config.js </h2>
                 <div class="stats high">
-                    <div class="percentage">100%</div>
-                    <div class="sloc">45</div>
-                    <div class="hits">45</div>
-                    <div class="misses">0</div>
+                    <div class="percentage">92.38%</div>
+                    <div class="sloc">105</div>
+                    <div class="hits">97</div>
+                    <div class="misses">8</div>
                 </div>
                 <table>
                     <thead>
@@ -807,191 +807,593 @@
                         </tr>            <tr id="dist/config.js__18" class="hit">
                           <td class="line" data-tooltip>18</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip>1</td>
-                          <td class="source">const config_doc_1 &#x3D; __importDefault(require(&quot;./config-doc&quot;));</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__7">7</a></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">// TODO: caching, info msgs to clear cache</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__8">8</a></td>
                         </tr>            <tr id="dist/config.js__19" class="hit">
                           <td class="line" data-tooltip>19</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>1</td>
-                          <td class="source">module.exports &#x3D; config;</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__9">9</a></td>
+                          <td class="source">const config_doc_1 &#x3D; __importDefault(require(&quot;./config-doc&quot;));</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__10">10</a></td>
                         </tr>            <tr id="dist/config.js__20" class="hit">
                           <td class="line" data-tooltip>20</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>1</td>
-                          <td class="source">module.exports.defaults &#x3D; {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__10">10</a></td>
+                          <td class="source">module.exports &#x3D; config;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__12">12</a></td>
                         </tr>            <tr id="dist/config.js__21" class="hit">
                           <td class="line" data-tooltip>21</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>1</td>
-                          <td class="source">module.exports.errors &#x3D; {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__11">11</a></td>
+                          <td class="source">module.exports.defaults &#x3D; {};</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__13">13</a></td>
                         </tr>            <tr id="dist/config.js__22" class="hit">
                           <td class="line" data-tooltip>22</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>1</td>
-                          <td class="source">module.exports.doc &#x3D; config_doc_1.default;</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__12">12</a></td>
+                          <td class="source">module.exports.errors &#x3D; {};</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__14">14</a></td>
                         </tr>            <tr id="dist/config.js__23" class="hit">
                           <td class="line" data-tooltip>23</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip></td>
-                          <td class="source">function config(options) {</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__36">36</a></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">module.exports.doc &#x3D; config_doc_1.default;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__15">15</a></td>
                         </tr>            <tr id="dist/config.js__24" class="hit">
                           <td class="line" data-tooltip>24</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip>2</td>
-                          <td class="source">    const seneca &#x3D; this;</td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">function config(options) {</td>
                           <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__37">37</a></td>
                         </tr>            <tr id="dist/config.js__25" class="hit">
                           <td class="line" data-tooltip>25</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>2</td>
-                          <td class="source">    const kindmap &#x3D; {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__39">39</a></td>
+                          <td class="source">    const seneca &#x3D; this;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__38">38</a></td>
                         </tr>            <tr id="dist/config.js__26" class="hit">
                           <td class="line" data-tooltip>26</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>2</td>
-                          <td class="source">    seneca</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__41">41</a></td>
+                          <td class="source">    const kindmap &#x3D; {};</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__40">40</a></td>
                         </tr>            <tr id="dist/config.js__27" class="hit">
                           <td class="line" data-tooltip>27</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip></td>
-                          <td class="source">        .fix(&#x27;sys:config&#x27;)</td>
+                          <td class="hits" data-tooltip>2</td>
+                          <td class="source">    seneca</td>
                           <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__42">42</a></td>
                         </tr>            <tr id="dist/config.js__28" class="hit">
                           <td class="line" data-tooltip>28</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">        .message(&#x27;set:resolve&#x27;, set_resolve)</td>
+                          <td class="source">        .fix(&#x27;sys:config&#x27;)</td>
                           <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__43">43</a></td>
                         </tr>            <tr id="dist/config.js__29" class="hit">
                           <td class="line" data-tooltip>29</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">        .message(&#x27;set:config&#x27;, set_config)</td>
+                          <td class="source">        .message(&#x27;set:kind&#x27;, set_kind)</td>
                           <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__44">44</a></td>
                         </tr>            <tr id="dist/config.js__30" class="hit">
                           <td class="line" data-tooltip>30</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">        .message(&#x27;get:config&#x27;, get_config);</td>
+                          <td class="source">        .message(&#x27;get:kindmap&#x27;, get_kindmap)</td>
                           <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__45">45</a></td>
                         </tr>            <tr id="dist/config.js__31" class="hit">
                           <td class="line" data-tooltip>31</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">    function set_resolve() {</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__48">48</a></td>
+                          <td class="source">        .message(&#x27;set:config&#x27;, set_config)</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__46">46</a></td>
                         </tr>            <tr id="dist/config.js__32" class="hit">
                           <td class="line" data-tooltip>32</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip>1</td>
-                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
-                          
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">        .message(&#x27;get:config&#x27;, get_config);</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__47">47</a></td>
                         </tr>            <tr id="dist/config.js__33" class="hit">
                           <td class="line" data-tooltip>33</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">            return {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__49">49</a></td>
+                          <td class="source">    // TODO: Joi validation</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__50">50</a></td>
                         </tr>            <tr id="dist/config.js__34" class="hit">
                           <td class="line" data-tooltip>34</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">        });</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__50">50</a></td>
+                          <td class="source">    function set_kind(msg) {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__51">51</a></td>
                         </tr>            <tr id="dist/config.js__35" class="hit">
                           <td class="line" data-tooltip>35</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip></td>
-                          <td class="source">    }</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__50">50</a></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
+                          
                         </tr>            <tr id="dist/config.js__36" class="hit">
                           <td class="line" data-tooltip>36</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">    function get_config() {</td>
+                          <td class="source">            let kind &#x3D; msg.kind;</td>
                           <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__52">52</a></td>
                         </tr>            <tr id="dist/config.js__37" class="hit">
                           <td class="line" data-tooltip>37</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip>1</td>
-                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
-                          
+                          <td class="source">            let merge &#x3D; msg.merge;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__53">53</a></td>
                         </tr>            <tr id="dist/config.js__38" class="hit">
                           <td class="line" data-tooltip>38</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip></td>
-                          <td class="source">            return {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__53">53</a></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let sourcemap &#x3D; msg.sourcemap;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__54">54</a></td>
                         </tr>            <tr id="dist/config.js__39" class="hit">
                           <td class="line" data-tooltip>39</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip></td>
-                          <td class="source">        });</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__54">54</a></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let cs &#x3D; {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__56">56</a></td>
                         </tr>            <tr id="dist/config.js__40" class="hit">
                           <td class="line" data-tooltip>40</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">    }</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__54">54</a></td>
+                          <td class="source">                kind,</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__57">57</a></td>
                         </tr>            <tr id="dist/config.js__41" class="hit">
                           <td class="line" data-tooltip>41</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">    function set_config() {</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__56">56</a></td>
+                          <td class="source">                merge,</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__58">58</a></td>
                         </tr>            <tr id="dist/config.js__42" class="hit">
                           <td class="line" data-tooltip>42</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip>1</td>
-                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
-                          
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                sourcemap</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__59">59</a></td>
                         </tr>            <tr id="dist/config.js__43" class="hit">
                           <td class="line" data-tooltip>43</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">            return {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__57">57</a></td>
+                          <td class="source">            };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__60">60</a></td>
                         </tr>            <tr id="dist/config.js__44" class="hit">
                           <td class="line" data-tooltip>44</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip></td>
-                          <td class="source">        });</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__58">58</a></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            kindmap[cs.kind] &#x3D; cs;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__62">62</a></td>
                         </tr>            <tr id="dist/config.js__45" class="hit">
                           <td class="line" data-tooltip>45</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">    }</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__58">58</a></td>
+                          <td class="source">            // TODO: clear cache, update msgs to clear cache</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__64">64</a></td>
                         </tr>            <tr id="dist/config.js__46" class="hit">
                           <td class="line" data-tooltip>46</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip>2</td>
-                          <td class="source">    return {};</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__60">60</a></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            return { ok: true, kindmap: this.util.deep(kindmap) };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__66">66</a></td>
                         </tr>            <tr id="dist/config.js__47" class="hit">
                           <td class="line" data-tooltip>47</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
-                          <td class="source">}</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__61">61</a></td>
+                          <td class="source">        });</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__67">67</a></td>
                         </tr>            <tr id="dist/config.js__48" class="hit">
                           <td class="line" data-tooltip>48</td>
                           <td class="lint empty"></td>
-                          <td class="hits" data-tooltip>1</td>
-                          <td class="source">const intern &#x3D; (module.exports.intern &#x3D; {});</td>
-                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__63">63</a></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__67">67</a></td>
                         </tr>            <tr id="dist/config.js__49" class="hit">
                           <td class="line" data-tooltip>49</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    function get_kindmap() {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__70">70</a></td>
+                        </tr>            <tr id="dist/config.js__50" class="hit">
+                          <td class="line" data-tooltip>50</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
+                          
+                        </tr>            <tr id="dist/config.js__51" class="hit">
+                          <td class="line" data-tooltip>51</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            return { ok: true, kindmap: this.util.deep(kindmap) };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__71">71</a></td>
+                        </tr>            <tr id="dist/config.js__52" class="hit">
+                          <td class="line" data-tooltip>52</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">        });</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__72">72</a></td>
+                        </tr>            <tr id="dist/config.js__53" class="hit">
+                          <td class="line" data-tooltip>53</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__72">72</a></td>
+                        </tr>            <tr id="dist/config.js__54" class="hit">
+                          <td class="line" data-tooltip>54</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    function get_config(msg) {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__75">75</a></td>
+                        </tr>            <tr id="dist/config.js__55" class="hit">
+                          <td class="line" data-tooltip>55</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
+                          
+                        </tr>            <tr id="dist/config.js__56" class="hit">
+                          <td class="line" data-tooltip>56</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            let kind &#x3D; msg.kind;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__76">76</a></td>
+                        </tr>            <tr id="dist/config.js__57" class="hit">
+                          <td class="line" data-tooltip>57</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let sourcemap &#x3D; msg.sourcemap;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__77">77</a></td>
+                        </tr>            <tr id="dist/config.js__58" class="hit">
+                          <td class="line" data-tooltip>58</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let configmap &#x3D; msg.configmap;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__78">78</a></td>
+                        </tr>            <tr id="dist/config.js__59" class="hit">
+                          <td class="line" data-tooltip>59</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let cs &#x3D; kindmap[kind];</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__80">80</a></td>
+                        </tr>            <tr id="dist/config.js__60" class="chunks">
+                          <td class="line" data-tooltip>60</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source"><div>            if (</div><div class="miss false" data-tooltip>null &#x3D;&#x3D; cs</div><div>) {</div></td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__81">81</a></td>
+                        </tr>            <tr id="dist/config.js__61" class="miss">
+                          <td class="line" data-tooltip>61</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source" data-tooltip>                return { ok: false, why: &#x27;unknown-kind&#x27;, kind: kind };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__82">82</a></td>
+                        </tr>            <tr id="dist/config.js__62" class="hit">
+                          <td class="line" data-tooltip>62</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__83">83</a></td>
+                        </tr>            <tr id="dist/config.js__63" class="hit">
+                          <td class="line" data-tooltip>63</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let merge &#x3D; cs.merge;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__85">85</a></td>
+                        </tr>            <tr id="dist/config.js__64" class="hit">
+                          <td class="line" data-tooltip>64</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            let config &#x3D; this.util.deep({}, configmap.pre);</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__87">87</a></td>
+                        </tr>            <tr id="dist/config.js__65" class="hit">
+                          <td class="line" data-tooltip>65</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            for (let sourcename of merge) {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__89">89</a></td>
+                        </tr>            <tr id="dist/config.js__66" class="hit">
+                          <td class="line" data-tooltip>66</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                // TODO: aliases, null checks</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__91">91</a></td>
+                        </tr>            <tr id="dist/config.js__67" class="hit">
+                          <td class="line" data-tooltip>67</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">                let entry &#x3D; yield this.entity(&#x27;sys/config&#x27;).load$({</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__92">92</a></td>
+                        </tr>            <tr id="dist/config.js__68" class="hit">
+                          <td class="line" data-tooltip>68</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                    kind: kind,</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__93">93</a></td>
+                        </tr>            <tr id="dist/config.js__69" class="hit">
+                          <td class="line" data-tooltip>69</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                    [sourcename]: sourcemap[sourcename]</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__94">94</a></td>
+                        </tr>            <tr id="dist/config.js__70" class="hit">
+                          <td class="line" data-tooltip>70</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                });</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__95">95</a></td>
+                        </tr>            <tr id="dist/config.js__71" class="chunks">
+                          <td class="line" data-tooltip>71</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source"><div>                if (</div><div class="miss true" data-tooltip>null !&#x3D; entry</div><div>) {</div></td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__97">97</a></td>
+                        </tr>            <tr id="dist/config.js__72" class="hit">
+                          <td class="line" data-tooltip>72</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">                    config &#x3D; this.util.deep(config, entry.config);</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__98">98</a></td>
+                        </tr>            <tr id="dist/config.js__73" class="hit">
+                          <td class="line" data-tooltip>73</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__99">99</a></td>
+                        </tr>            <tr id="dist/config.js__74" class="hit">
+                          <td class="line" data-tooltip>74</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__100">100</a></td>
+                        </tr>            <tr id="dist/config.js__75" class="hit">
+                          <td class="line" data-tooltip>75</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            config &#x3D; this.util.deep(config, configmap.post);</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__102">102</a></td>
+                        </tr>            <tr id="dist/config.js__76" class="hit">
+                          <td class="line" data-tooltip>76</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">            return { ok: true, config };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__104">104</a></td>
+                        </tr>            <tr id="dist/config.js__77" class="hit">
+                          <td class="line" data-tooltip>77</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">        });</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__105">105</a></td>
+                        </tr>            <tr id="dist/config.js__78" class="hit">
+                          <td class="line" data-tooltip>78</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__105">105</a></td>
+                        </tr>            <tr id="dist/config.js__79" class="hit">
+                          <td class="line" data-tooltip>79</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    function set_config(msg) {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__108">108</a></td>
+                        </tr>            <tr id="dist/config.js__80" class="hit">
+                          <td class="line" data-tooltip>80</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">        return __awaiter(this, void 0, void 0, function* () {</td>
+                          
+                        </tr>            <tr id="dist/config.js__81" class="hit">
+                          <td class="line" data-tooltip>81</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            let kind &#x3D; msg.kind;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__109">109</a></td>
+                        </tr>            <tr id="dist/config.js__82" class="hit">
+                          <td class="line" data-tooltip>82</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let source &#x3D; msg.source;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__110">110</a></td>
+                        </tr>            <tr id="dist/config.js__83" class="hit">
+                          <td class="line" data-tooltip>83</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let config &#x3D; msg.config;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__111">111</a></td>
+                        </tr>            <tr id="dist/config.js__84" class="hit">
+                          <td class="line" data-tooltip>84</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let cs &#x3D; kindmap[kind];</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__113">113</a></td>
+                        </tr>            <tr id="dist/config.js__85" class="chunks">
+                          <td class="line" data-tooltip>85</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source"><div>            if (</div><div class="miss false" data-tooltip>null &#x3D;&#x3D; cs</div><div>) {</div></td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__114">114</a></td>
+                        </tr>            <tr id="dist/config.js__86" class="miss">
+                          <td class="line" data-tooltip>86</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source" data-tooltip>                return { ok: false, why: &#x27;unknown-kind&#x27;, kind: kind };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__115">115</a></td>
+                        </tr>            <tr id="dist/config.js__87" class="hit">
+                          <td class="line" data-tooltip>87</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__116">116</a></td>
+                        </tr>            <tr id="dist/config.js__88" class="hit">
+                          <td class="line" data-tooltip>88</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let sourcename &#x3D; Object.keys(source)[0];</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__118">118</a></td>
+                        </tr>            <tr id="dist/config.js__89" class="hit">
+                          <td class="line" data-tooltip>89</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let sourcevalue &#x3D; source[sourcename];</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__119">119</a></td>
+                        </tr>            <tr id="dist/config.js__90" class="hit">
+                          <td class="line" data-tooltip>90</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let csrc &#x3D; cs.sourcemap[sourcename];</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__121">121</a></td>
+                        </tr>            <tr id="dist/config.js__91" class="chunks">
+                          <td class="line" data-tooltip>91</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source"><div>            if (</div><div class="miss false" data-tooltip>null &#x3D;&#x3D; csrc</div><div>) {</div></td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__123">123</a></td>
+                        </tr>            <tr id="dist/config.js__92" class="miss">
+                          <td class="line" data-tooltip>92</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source" data-tooltip>                return { ok: false, why: &#x27;unknown-source&#x27;, kind: kind, source: sourcename };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__124">124</a></td>
+                        </tr>            <tr id="dist/config.js__93" class="hit">
+                          <td class="line" data-tooltip>93</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__125">125</a></td>
+                        </tr>            <tr id="dist/config.js__94" class="hit">
+                          <td class="line" data-tooltip>94</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            if (&#x27;id&#x27; &#x3D;&#x3D;&#x3D; csrc.kind) {</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__127">127</a></td>
+                        </tr>            <tr id="dist/config.js__95" class="hit">
+                          <td class="line" data-tooltip>95</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                // resolve alias, if any</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__128">128</a></td>
+                        </tr>            <tr id="dist/config.js__96" class="hit">
+                          <td class="line" data-tooltip>96</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__129">129</a></td>
+                        </tr>            <tr id="dist/config.js__97" class="hit">
+                          <td class="line" data-tooltip>97</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            // TODO: entity really needs an upsert op!</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__131">131</a></td>
+                        </tr>            <tr id="dist/config.js__98" class="hit">
+                          <td class="line" data-tooltip>98</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            let entry &#x3D; yield this.entity(&#x27;sys/config&#x27;).load$({</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__133">133</a></td>
+                        </tr>            <tr id="dist/config.js__99" class="hit">
+                          <td class="line" data-tooltip>99</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                kind: kind,</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__134">134</a></td>
+                        </tr>            <tr id="dist/config.js__100" class="hit">
+                          <td class="line" data-tooltip>100</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">                [sourcename]: sourcevalue</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__135">135</a></td>
+                        </tr>            <tr id="dist/config.js__101" class="hit">
+                          <td class="line" data-tooltip>101</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            });</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__136">136</a></td>
+                        </tr>            <tr id="dist/config.js__102" class="chunks">
+                          <td class="line" data-tooltip>102</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source"><div>            if (</div><div class="miss true" data-tooltip>null &#x3D;&#x3D; entry</div><div>) {</div></td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__138">138</a></td>
+                        </tr>            <tr id="dist/config.js__103" class="hit">
+                          <td class="line" data-tooltip>103</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">                entry &#x3D; this.entity(&#x27;sys/config&#x27;).make$();</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__139">139</a></td>
+                        </tr>            <tr id="dist/config.js__104" class="hit">
+                          <td class="line" data-tooltip>104</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__140">140</a></td>
+                        </tr>            <tr id="dist/config.js__105" class="hit">
+                          <td class="line" data-tooltip>105</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            entry.kind &#x3D; kind;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__142">142</a></td>
+                        </tr>            <tr id="dist/config.js__106" class="hit">
+                          <td class="line" data-tooltip>106</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            entry[sourcename] &#x3D; sourcevalue;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__143">143</a></td>
+                        </tr>            <tr id="dist/config.js__107" class="hit">
+                          <td class="line" data-tooltip>107</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            entry.config &#x3D; msg.config;</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__144">144</a></td>
+                        </tr>            <tr id="dist/config.js__108" class="hit">
+                          <td class="line" data-tooltip>108</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            entry &#x3D; yield entry.save$();</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__146">146</a></td>
+                        </tr>            <tr id="dist/config.js__109" class="hit">
+                          <td class="line" data-tooltip>109</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">            // TODO: update cache, update msgs to clear cache</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__148">148</a></td>
+                        </tr>            <tr id="dist/config.js__110" class="hit">
+                          <td class="line" data-tooltip>110</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>3</td>
+                          <td class="source">            return { ok: true, config: entry };</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__150">150</a></td>
+                        </tr>            <tr id="dist/config.js__111" class="hit">
+                          <td class="line" data-tooltip>111</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">        });</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__151">151</a></td>
+                        </tr>            <tr id="dist/config.js__112" class="hit">
+                          <td class="line" data-tooltip>112</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">    }</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__151">151</a></td>
+                        </tr>            <tr id="dist/config.js__113" class="hit">
+                          <td class="line" data-tooltip>113</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>2</td>
+                          <td class="source">    return {};</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__153">153</a></td>
+                        </tr>            <tr id="dist/config.js__114" class="hit">
+                          <td class="line" data-tooltip>114</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip></td>
+                          <td class="source">}</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__154">154</a></td>
+                        </tr>            <tr id="dist/config.js__115" class="hit">
+                          <td class="line" data-tooltip>115</td>
+                          <td class="lint empty"></td>
+                          <td class="hits" data-tooltip>1</td>
+                          <td class="source">const intern &#x3D; (module.exports.intern &#x3D; {});</td>
+                          <td class="original-line" data-tooltip="../config.ts"><a href="#../config.ts__156">156</a></td>
+                        </tr>            <tr id="dist/config.js__116" class="hit">
+                          <td class="line" data-tooltip>116</td>
                           <td class="lint empty"></td>
                           <td class="hits" data-tooltip></td>
                           <td class="source">//# sourceMappingURL&#x3D;config.js.map</td>
