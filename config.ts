@@ -108,7 +108,7 @@ function config(options: any) {
   async function set_config(msg: any) {
     let kind: string = msg.kind
     let source: { [name: string]: string } = msg.source
-    let config = msg.config
+    // let config = msg.config
 
     let cs = kindmap[kind]
     if (null == cs) {
@@ -153,4 +153,4 @@ function config(options: any) {
   return {}
 }
 
-const intern = (module.exports.intern = {})
+// const intern = (module.exports.intern = {})

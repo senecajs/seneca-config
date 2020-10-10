@@ -80,7 +80,7 @@ function config(options) {
         return __awaiter(this, void 0, void 0, function* () {
             let kind = msg.kind;
             let source = msg.source;
-            let config = msg.config;
+            // let config = msg.config
             let cs = kindmap[kind];
             if (null == cs) {
                 return { ok: false, why: 'unknown-kind', kind: kind };
@@ -112,5 +112,4 @@ function config(options) {
     }
     return {};
 }
-const intern = (module.exports.intern = {});
 //# sourceMappingURL=config.js.map
