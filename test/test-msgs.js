@@ -10,6 +10,29 @@ module.exports = {
   fix: 'sys:config',
   calls: [
     LN({
+      pattern: 'sys:entity,role:entity,base:sys,name:user,cmd:save',
+      params: {
+        ent: {
+          id$:'u01',
+          handle: 'u01h'
+        }
+      },
+      out: {}
+    }),
+
+
+    LN({
+      pattern: 'sys:entity,role:entity,base:sys,name:user,cmd:save',
+      params: {
+        ent: {
+          id$:'o01',
+          handle: 'o01h'
+        }
+      },
+      out: {}
+    }),
+
+    LN({
       pattern: 'set:kind,kind:app',
       params: {      
         merge: ['app','org','user'],
@@ -157,6 +180,48 @@ module.exports = {
         }
       }
     }),
+
+    LN({
+      pattern: 'set:config,kind:app',
+      params: {
+        source: {
+          user_handle: 'u01h'
+        },
+        config: {
+          u: 11
+        }
+      },
+      out: {
+        ok: true,
+        config: {kind:'app',user:'u01',config:{u:11}}
+      }
+    }),
+
+    LN({
+      pattern: 'get:config,kind:app',
+      params: {
+        configmap: {
+          pre: {
+            p: 1
+          },
+          post: {
+            t: 1
+          },
+        },
+        sourcemap: {
+          app: 'foo',
+          user_handle: 'u01h',
+          org_handle: 'o01h'
+        }
+      },
+      out: {
+        ok: true,
+        config: {
+          t: 1, u: 11, o: 1, a: 1, p: 1
+        }
+      }
+    }),
+
   ],
 }
 
