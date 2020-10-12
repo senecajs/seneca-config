@@ -128,7 +128,8 @@ function config(options) {
             }
             entry.kind = kind;
             entry[source_name] = source_value;
-            entry.config = config;
+            // NOTE: don't rely on db merge
+            entry.config = seneca.util.deep(entry.config || {}, config);
             entry = yield entry.save$();
             // TODO: update cache, update msgs to clear cache
             return { ok: true, config: entry };

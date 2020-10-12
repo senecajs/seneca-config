@@ -172,7 +172,9 @@ function config(options: any) {
 
     entry.kind = kind
     entry[source_name] = source_value
-    entry.config = config
+
+    // NOTE: don't rely on db merge
+    entry.config = seneca.util.deep(entry.config || {}, config)
 
     entry = await entry.save$()
 
