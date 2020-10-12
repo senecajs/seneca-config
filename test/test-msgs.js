@@ -13,29 +13,28 @@ module.exports = {
       pattern: 'sys:entity,role:entity,base:sys,name:user,cmd:save',
       params: {
         ent: {
-          id$:'u01',
-          handle: 'u01h'
-        }
+          id$: 'u01',
+          handle: 'u01h',
+        },
       },
-      out: {}
+      out: {},
     }),
-
 
     LN({
       pattern: 'sys:entity,role:entity,base:sys,name:user,cmd:save',
       params: {
         ent: {
-          id$:'o01',
-          handle: 'o01h'
-        }
+          id$: 'o01',
+          handle: 'o01h',
+        },
       },
-      out: {}
+      out: {},
     }),
 
     LN({
       pattern: 'set:kind,kind:app',
-      params: {      
-        merge: ['app','org','user'],
+      params: {
+        merge: ['app', 'org', 'user'],
         sourcemap: {
           app: {
             kind: 'param',
@@ -44,42 +43,41 @@ module.exports = {
             kind: 'id',
             entity: 'sys/user',
             alias: {
-              user_handle: 'handle'
-            }
+              user_handle: 'handle',
+            },
           },
           org: {
             kind: 'id',
             entity: 'sys/user',
             alias: {
-              org_handle: 'handle'
-            }
-          }
-        }
+              org_handle: 'handle',
+            },
+          },
+        },
       },
       out: {
         ok: true,
         kindmap: {
           app: {
             kind: 'app',
-            merge: [ 'app', 'org', 'user' ],
+            merge: ['app', 'org', 'user'],
             sourcemap: {
               app: { kind: 'param' },
               user: {
                 kind: 'id',
                 entity: 'sys/user',
-                alias: { user_handle: 'handle' }
+                alias: { user_handle: 'handle' },
               },
               org: {
                 kind: 'id',
                 entity: 'sys/user',
-                alias: { org_handle: 'handle' }
-              }
-            }
-          }
-        }
-      }
+                alias: { org_handle: 'handle' },
+              },
+            },
+          },
+        },
+      },
     }),
-
 
     LN({
       pattern: 'get:kindmap',
@@ -88,72 +86,71 @@ module.exports = {
         kindmap: {
           app: {
             kind: 'app',
-            merge: [ 'app', 'org', 'user' ],
+            merge: ['app', 'org', 'user'],
             sourcemap: {
               app: { kind: 'param' },
               user: {
                 kind: 'id',
                 entity: 'sys/user',
-                alias: { user_handle: 'handle' }
+                alias: { user_handle: 'handle' },
               },
               org: {
                 kind: 'id',
                 entity: 'sys/user',
-                alias: { org_handle: 'handle' }
-              }
-            }
-          }
-        }
-      }
-    }),
-    
-      
-    LN({
-      pattern: 'set:config,kind:app',
-      params: {
-        source: {
-          app: 'foo'
+                alias: { org_handle: 'handle' },
+              },
+            },
+          },
         },
-        config: {
-          a: 1
-        }
       },
-      out: {
-        ok: true,
-        config: {kind:'app',app:'foo',config:{a:1}}
-      }
     }),
 
     LN({
       pattern: 'set:config,kind:app',
       params: {
         source: {
-          user: 'u01'
+          app: 'foo',
         },
         config: {
-          u: 1
-        }
+          a: 1,
+        },
       },
       out: {
         ok: true,
-        config: {kind:'app',user:'u01',config:{u:1}}
-      }
+        config: { kind: 'app', app: 'foo', config: { a: 1 } },
+      },
     }),
 
     LN({
       pattern: 'set:config,kind:app',
       params: {
         source: {
-          org: 'o01'
+          user: 'u01',
         },
         config: {
-          o: 1
-        }
+          u: 1,
+        },
       },
       out: {
         ok: true,
-        config: {kind:'app',org:'o01',config:{o:1}}
-      }
+        config: { kind: 'app', user: 'u01', config: { u: 1 } },
+      },
+    }),
+
+    LN({
+      pattern: 'set:config,kind:app',
+      params: {
+        source: {
+          org: 'o01',
+        },
+        config: {
+          o: 1,
+        },
+      },
+      out: {
+        ok: true,
+        config: { kind: 'app', org: 'o01', config: { o: 1 } },
+      },
     }),
 
     LN({
@@ -161,40 +158,44 @@ module.exports = {
       params: {
         configmap: {
           pre: {
-            p: 1
+            p: 1,
           },
           post: {
-            t: 1
+            t: 1,
           },
         },
         sourcemap: {
           app: 'foo',
           user: 'u01',
-          org: 'o01'
-        }
+          org: 'o01',
+        },
       },
       out: {
         ok: true,
         config: {
-          t: 1, u: 1, o: 1, a: 1, p: 1
-        }
-      }
+          t: 1,
+          u: 1,
+          o: 1,
+          a: 1,
+          p: 1,
+        },
+      },
     }),
 
     LN({
       pattern: 'set:config,kind:app',
       params: {
         source: {
-          user_handle: 'u01h'
+          user_handle: 'u01h',
         },
         config: {
-          u: 11
-        }
+          u: 11,
+        },
       },
       out: {
         ok: true,
-        config: {kind:'app',user:'u01',config:{u:11}}
-      }
+        config: { kind: 'app', user: 'u01', config: { u: 11 } },
+      },
     }),
 
     LN({
@@ -202,26 +203,28 @@ module.exports = {
       params: {
         configmap: {
           pre: {
-            p: 1
+            p: 1,
           },
           post: {
-            t: 1
+            t: 1,
           },
         },
         sourcemap: {
           app: 'foo',
           user_handle: 'u01h',
-          org_handle: 'o01h'
-        }
+          org_handle: 'o01h',
+        },
       },
       out: {
         ok: true,
         config: {
-          t: 1, u: 11, o: 1, a: 1, p: 1
-        }
-      }
+          t: 1,
+          u: 11,
+          o: 1,
+          a: 1,
+          p: 1,
+        },
+      },
     }),
-
   ],
 }
-

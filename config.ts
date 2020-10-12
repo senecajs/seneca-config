@@ -4,7 +4,6 @@
 
 /* $lab:coverage:on$ */
 
-
 // TODO: caching, info msgs to clear cache
 //       do this by extending seneca-cache!
 //       and supporting queue transports
@@ -16,10 +15,9 @@ module.exports.defaults = {}
 module.exports.errors = {}
 module.exports.doc = Doc
 
-
 interface ConfigSpec {
   kind: string
-  merge: string[],
+  merge: string[]
   sourcemap: { [name: string]: ConfigSource }
 }
 
@@ -35,7 +33,6 @@ interface ConfigSource {
   }
 }
 
-
 function config(options: any) {
   const seneca = this
 
@@ -48,21 +45,20 @@ function config(options: any) {
     .message('set:config', set_config)
     .message('get:config', get_config)
 
-
   // TODO: Joi validation
   async function set_kind(msg: any) {
     let kind: string = msg.kind
     let merge: string[] = msg.merge
     let sourcemap: { [name: string]: any } = msg.sourcemap
 
-    Object.keys(sourcemap).forEach(sn => {
+    Object.keys(sourcemap).forEach((sn) => {
       sourcemap[sn].name = sn
     })
 
     let cs: ConfigSpec = {
       kind,
       merge,
-      sourcemap
+      sourcemap,
     }
 
     kindmap[cs.kind] = cs
@@ -70,17 +66,15 @@ function config(options: any) {
     return { ok: true, kindmap: this.util.deep(kindmap) }
   }
 
-
   async function get_kindmap() {
     return { ok: true, kindmap: this.util.deep(kindmap) }
   }
 
-
   async function get_config(msg: any) {
     let seneca = this
     let kind: string = msg.kind
-    let sourcemap: { [name: string]: string } = msg.sourcemap
-    let configmap: { [name: string]: any } = msg.configmap
+    let sourcemap: { [name: string]: string } = msg.sourcemap || {}
+    let configmap: { [name: string]: any } = msg.configmap || {}
 
     let cs = kindmap[kind]
     if (null == cs) {
@@ -98,29 +92,31 @@ function config(options: any) {
         seneca,
         cs,
         sourcemap,
-        source_name,
+        source_name
       )
 
       let q = {
         kind: kind,
-        [source_name]: source_value
+        [source_name]: source_value,
       }
 
-      // TODO: aliases, null checks
-      let entry = await this.entity('sys/config').load$(q)
+      // TODO: aliases
 
-      if (null != entry) {
-        config = this.util.deep(config, entry.config)
+      if (null != source_value) {
+        let entry = await this.entity('sys/config').load$(q)
+
+        if (null != entry) {
+          config = this.util.deep(config, entry.config)
+        }
+
+        found.push({ q, c: entry && entry.config })
       }
-
-      found.push({ q, c: entry && entry.config })
     }
 
     config = this.util.deep(config, configmap.post)
 
     return { ok: true, config, found }
   }
-
 
   async function set_config(msg: any) {
     let seneca = this
@@ -140,14 +136,23 @@ function config(options: any) {
     )
 
     if (null == source_name) {
-      return { ok: false, why: 'unknown-source', kind: kind, source: source_name }
+      return {
+        ok: false,
+        why: 'unknown-source',
+        kind: kind,
+        source: source_name,
+      }
     }
-
 
     let csrc = cs.sourcemap[source_name]
 
     if (null == csrc) {
-      return { ok: false, why: 'unknown-source', kind: kind, source: source_name }
+      return {
+        ok: false,
+        why: 'unknown-source',
+        kind: kind,
+        source: source_name,
+      }
     }
 
     if ('id' === csrc.kind) {
@@ -158,7 +163,7 @@ function config(options: any) {
 
     let entry = await this.entity('sys/config').load$({
       kind: kind,
-      [source_name]: source_value
+      [source_name]: source_value,
     })
 
     if (null == entry) {
@@ -180,11 +185,11 @@ function config(options: any) {
 }
 
 const intern = (module.exports.intern = {
-  resolve_source_value: async function(
+  resolve_source_value: async function (
     seneca: any,
     cs: ConfigSpec,
     sourcemap: any,
-    source_name: string,
+    source_name: string
   ) {
     let source_value = sourcemap[source_name]
 
@@ -194,16 +199,17 @@ const intern = (module.exports.intern = {
         // console.log('ID')
 
         let aliasmap = csrc.alias || {}
-        let alias = Object
-          .keys(aliasmap)
-          .reduce((alias, an) =>
-            null == alias ? { n: aliasmap[an], v: sourcemap[an] } : alias, null)
+        let alias = Object.keys(aliasmap).reduce(
+          (alias, an) =>
+            null == alias ? { n: aliasmap[an], v: sourcemap[an] } : alias,
+          null
+        )
 
         // console.log('ALIAS', alias)
 
         if (null != alias) {
           let source_entity = await seneca.entity(csrc.entity).load$({
-            [alias.n]: alias.v
+            [alias.n]: alias.v,
           })
           if (null !== source_entity) {
             source_value = source_entity.id
@@ -215,7 +221,7 @@ const intern = (module.exports.intern = {
     return source_value
   },
 
-  resolve_source: async function(
+  resolve_source: async function (
     seneca: any,
     cs: ConfigSpec,
     source: {
@@ -228,25 +234,23 @@ const intern = (module.exports.intern = {
     let csrc: ConfigSource | void | null = cs.sourcemap[source_name]
 
     if (null == csrc) {
-      csrc = Object
-        .keys(cs.sourcemap)
-        .reduce((csrc, psn) => {
-          if (null != csrc) {
-            return csrc
-          }
-          if ('id' === cs.sourcemap[psn].kind) {
-            if (null != cs.sourcemap[psn].alias) {
-              if (null != (cs.sourcemap[psn].alias as any)[source_name]) {
-                return cs.sourcemap[psn]
-              }
+      csrc = Object.keys(cs.sourcemap).reduce((csrc, psn) => {
+        if (null != csrc) {
+          return csrc
+        }
+        if ('id' === cs.sourcemap[psn].kind) {
+          if (null != cs.sourcemap[psn].alias) {
+            if (null != (cs.sourcemap[psn].alias as any)[source_name]) {
+              return cs.sourcemap[psn]
             }
           }
-        }, null)
+        }
+      }, null)
 
       if (null != csrc) {
         if ('id' === csrc.kind) {
           let source_entity = await seneca.entity(csrc.entity).load$({
-            [(csrc as any).alias[source_name]]: source_value
+            [(csrc as any).alias[source_name]]: source_value,
           })
           if (null !== source_entity) {
             source_name = csrc.name
@@ -258,7 +262,7 @@ const intern = (module.exports.intern = {
 
     return {
       source_name: null == csrc ? null : source_name,
-      source_value
+      source_value,
     }
-  }
+  },
 })

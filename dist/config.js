@@ -38,13 +38,13 @@ function config(options) {
             let kind = msg.kind;
             let merge = msg.merge;
             let sourcemap = msg.sourcemap;
-            Object.keys(sourcemap).forEach(sn => {
+            Object.keys(sourcemap).forEach((sn) => {
                 sourcemap[sn].name = sn;
             });
             let cs = {
                 kind,
                 merge,
-                sourcemap
+                sourcemap,
             };
             kindmap[cs.kind] = cs;
             return { ok: true, kindmap: this.util.deep(kindmap) };
@@ -59,8 +59,8 @@ function config(options) {
         return __awaiter(this, void 0, void 0, function* () {
             let seneca = this;
             let kind = msg.kind;
-            let sourcemap = msg.sourcemap;
-            let configmap = msg.configmap;
+            let sourcemap = msg.sourcemap || {};
+            let configmap = msg.configmap || {};
             let cs = kindmap[kind];
             if (null == cs) {
                 return { ok: false, why: 'unknown-kind', kind: kind };
@@ -72,14 +72,16 @@ function config(options) {
                 let source_value = yield intern.resolve_source_value(seneca, cs, sourcemap, source_name);
                 let q = {
                     kind: kind,
-                    [source_name]: source_value
+                    [source_name]: source_value,
                 };
-                // TODO: aliases, null checks
-                let entry = yield this.entity('sys/config').load$(q);
-                if (null != entry) {
-                    config = this.util.deep(config, entry.config);
+                // TODO: aliases
+                if (null != source_value) {
+                    let entry = yield this.entity('sys/config').load$(q);
+                    if (null != entry) {
+                        config = this.util.deep(config, entry.config);
+                    }
+                    found.push({ q, c: entry && entry.config });
                 }
-                found.push({ q, c: entry && entry.config });
             }
             config = this.util.deep(config, configmap.post);
             return { ok: true, config, found };
@@ -97,11 +99,21 @@ function config(options) {
             }
             let { source_name, source_value } = yield intern.resolve_source(seneca, cs, source);
             if (null == source_name) {
-                return { ok: false, why: 'unknown-source', kind: kind, source: source_name };
+                return {
+                    ok: false,
+                    why: 'unknown-source',
+                    kind: kind,
+                    source: source_name,
+                };
             }
             let csrc = cs.sourcemap[source_name];
             if (null == csrc) {
-                return { ok: false, why: 'unknown-source', kind: kind, source: source_name };
+                return {
+                    ok: false,
+                    why: 'unknown-source',
+                    kind: kind,
+                    source: source_name,
+                };
             }
             if ('id' === csrc.kind) {
                 // resolve alias, if any
@@ -109,7 +121,7 @@ function config(options) {
             // TODO: entity really needs an upsert op!
             let entry = yield this.entity('sys/config').load$({
                 kind: kind,
-                [source_name]: source_value
+                [source_name]: source_value,
             });
             if (null == entry) {
                 entry = this.entity('sys/config').make$();
@@ -133,13 +145,11 @@ const intern = (module.exports.intern = {
                 if ('id' === csrc.kind) {
                     // console.log('ID')
                     let aliasmap = csrc.alias || {};
-                    let alias = Object
-                        .keys(aliasmap)
-                        .reduce((alias, an) => null == alias ? { n: aliasmap[an], v: sourcemap[an] } : alias, null);
+                    let alias = Object.keys(aliasmap).reduce((alias, an) => null == alias ? { n: aliasmap[an], v: sourcemap[an] } : alias, null);
                     // console.log('ALIAS', alias)
                     if (null != alias) {
                         let source_entity = yield seneca.entity(csrc.entity).load$({
-                            [alias.n]: alias.v
+                            [alias.n]: alias.v,
                         });
                         if (null !== source_entity) {
                             source_value = source_entity.id;
@@ -156,9 +166,7 @@ const intern = (module.exports.intern = {
             let source_value = source[source_name];
             let csrc = cs.sourcemap[source_name];
             if (null == csrc) {
-                csrc = Object
-                    .keys(cs.sourcemap)
-                    .reduce((csrc, psn) => {
+                csrc = Object.keys(cs.sourcemap).reduce((csrc, psn) => {
                     if (null != csrc) {
                         return csrc;
                     }
@@ -173,7 +181,7 @@ const intern = (module.exports.intern = {
                 if (null != csrc) {
                     if ('id' === csrc.kind) {
                         let source_entity = yield seneca.entity(csrc.entity).load$({
-                            [csrc.alias[source_name]]: source_value
+                            [csrc.alias[source_name]]: source_value,
                         });
                         if (null !== source_entity) {
                             source_name = csrc.name;
@@ -184,9 +192,9 @@ const intern = (module.exports.intern = {
             }
             return {
                 source_name: null == csrc ? null : source_name,
-                source_value
+                source_value,
             };
         });
-    }
+    },
 });
 //# sourceMappingURL=config.js.map
