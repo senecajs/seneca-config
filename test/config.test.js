@@ -26,36 +26,35 @@ lab.test('messages', async () => {
   await msgtest()
 })
 
-
 lab.test('client-server', async () => {
-  let s0 = await seneca_instance({tag:'s0'},{mode:'server'}).test()
+  let s0 = await seneca_instance({ tag: 's0' }, { mode: 'server' }).test()
 
-  s0.post('sys:config,set:kind,kind:k0,merge:[src0],sourcemap:{src0:{kind:param}}')
+  s0.post(
+    'sys:config,set:kind,kind:k0,merge:[src0],sourcemap:{src0:{kind:param}}'
+  )
   s0.post('sys:config,set:config,kind:k0,source:{src0:x},config:{a:1}')
   s0.listen(54321)
   await s0.ready()
 
   let out = await s0.post('sys:config,get:config,kind:k0,sourcemap:{src0:x}')
   // console.dir(out,{depth:null})
-  expect(out).contains({ok:true,config:{a:1}})
-  
+  expect(out).contains({ ok: true, config: { a: 1 } })
+
   // console.log('s0',s0.list())
-  
-  let c0 = await seneca_instance({tag:'c0'},{mode:'client'}).test()
+
+  let c0 = await seneca_instance({ tag: 'c0' }, { mode: 'client' }).test()
   c0.client(54321)
   await c0.ready()
 
   // console.log('c0',c0.list())
-  
+
   out = await c0.post('sys:config,get:config,kind:k0,sourcemap:{src0:x}')
   // console.dir(out,{depth:null})
-  expect(out).contains({ok:true,config:{a:1}})
+  expect(out).contains({ ok: true, config: { a: 1 } })
 
-  
   await c0.close()
   await s0.close()
 })
-
 
 function seneca_instance(config, plugin_options) {
   return Seneca(config, { legacy: false })

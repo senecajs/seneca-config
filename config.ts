@@ -45,19 +45,16 @@ function config(options: any) {
     .message('set:config', set_config)
     .message('get:config', get_config)
 
-
   if (options.mode) {
     if ('client' === options.mode) {
       seneca.translate('sys:config,set:kind', 'sys:remote-config')
       seneca.translate('sys:config,get:kindmap', 'sys:remote-config')
       seneca.translate('sys:config,set:config', 'sys:remote-config')
       seneca.translate('sys:config,get:config', 'sys:remote-config')
-    }
-    else if ('server' === options.mode) {
+    } else if ('server' === options.mode) {
       seneca.translate('sys:remote-config', 'sys:config')
     }
   }
-
 
   // TODO: Joi validation
   async function set_kind(msg: any) {
@@ -201,7 +198,7 @@ function config(options: any) {
 }
 
 const intern = (module.exports.intern = {
-  resolve_source_value: async function(
+  resolve_source_value: async function (
     seneca: any,
     cs: ConfigSpec,
     sourcemap: any,
@@ -237,7 +234,7 @@ const intern = (module.exports.intern = {
     return source_value
   },
 
-  resolve_source: async function(
+  resolve_source: async function (
     seneca: any,
     cs: ConfigSpec,
     source: {
