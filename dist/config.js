@@ -32,6 +32,17 @@ function config(options) {
         .message('get:kindmap', get_kindmap)
         .message('set:config', set_config)
         .message('get:config', get_config);
+    if (options.mode) {
+        if ('client' === options.mode) {
+            seneca.translate('sys:config,set:kind', 'sys:remote-config');
+            seneca.translate('sys:config,get:kindmap', 'sys:remote-config');
+            seneca.translate('sys:config,set:config', 'sys:remote-config');
+            seneca.translate('sys:config,get:config', 'sys:remote-config');
+        }
+        else if ('server' === options.mode) {
+            seneca.translate('sys:remote-config', 'sys:config');
+        }
+    }
     // TODO: Joi validation
     function set_kind(msg) {
         return __awaiter(this, void 0, void 0, function* () {

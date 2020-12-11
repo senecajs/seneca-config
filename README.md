@@ -13,78 +13,12 @@
 
 
 <!--START:options-->
-
-
-## Options
-
-* `` : object <i><small>"&nbsp;"</small></i>
-
-
-Set plugin options when loading with:
-```js
-
-
-seneca.use('config', { name: value, ... })
-
-
-```
-
-
-<small>Note: <code>foo.bar</code> in the list above means 
-<code>{ foo: { bar: ... } }</code></small> 
-
-
-
 <!--END:options-->
 
 <!--START:action-list-->
-
-
-## Action Patterns
-
-* [sys:config,get:config](#-sysconfiggetconfig-)
-* [sys:config,get:kindmap](#-sysconfiggetkindmap-)
-* [sys:config,set:config](#-sysconfigsetconfig-)
-* [sys:config,set:kind](#-sysconfigsetkind-)
-
-
 <!--END:action-list-->
 
 <!--START:action-desc-->
-
-
-## Action Descriptions
-
-### &laquo; `sys:config,get:config` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `sys:config,get:kindmap` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `sys:config,set:config` &raquo;
-
-No description provided.
-
-
-
-----------
-### &laquo; `sys:config,set:kind` &raquo;
-
-No description provided.
-
-
-
-----------
-
-
 <!--END:action-desc-->
 
 
