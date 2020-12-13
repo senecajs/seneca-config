@@ -153,25 +153,23 @@ module.exports = {
       },
     }),
 
-
     LN({
       pattern: 'set:config,kind:not-a-kind',
       out: {
         ok: false,
         kind: 'not-a-kind',
-        why: 'unknown-kind'
+        why: 'unknown-kind',
       },
     }),
-    
+
     LN({
       pattern: 'get:config,kind:not-a-kind',
       out: {
         ok: false,
         kind: 'not-a-kind',
-        why: 'unknown-kind'
+        why: 'unknown-kind',
       },
     }),
-
 
     LN({
       pattern: 'get:config,kind:app',

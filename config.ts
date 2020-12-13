@@ -201,7 +201,7 @@ function config(options: any) {
 }
 
 const intern = (module.exports.intern = {
-  resolve_source_value: async function(
+  resolve_source_value: async function (
     seneca: any,
     cs: ConfigSpec,
     sourcemap: any,
@@ -237,7 +237,7 @@ const intern = (module.exports.intern = {
     return source_value
   },
 
-  resolve_source: async function(
+  resolve_source: async function (
     seneca: any,
     cs: ConfigSpec,
     source: {
