@@ -5,7 +5,7 @@ const MsgTest = require('seneca-msg-test')
 const LN = MsgTest.LN
 
 module.exports = {
-  print: true,
+  print: false,
   test: true,
   fix: 'sys:config',
   calls: [
@@ -152,6 +152,26 @@ module.exports = {
         config: { kind: 'app', org: 'o01', config: { o: 1 } },
       },
     }),
+
+
+    LN({
+      pattern: 'set:config,kind:not-a-kind',
+      out: {
+        ok: false,
+        kind: 'not-a-kind',
+        why: 'unknown-kind'
+      },
+    }),
+    
+    LN({
+      pattern: 'get:config,kind:not-a-kind',
+      out: {
+        ok: false,
+        kind: 'not-a-kind',
+        why: 'unknown-kind'
+      },
+    }),
+
 
     LN({
       pattern: 'get:config,kind:app',

@@ -32,15 +32,17 @@ function config(options) {
         .message('get:kindmap', get_kindmap)
         .message('set:config', set_config)
         .message('get:config', get_config);
+    // console.log('CONFIG OPTS', options, seneca)
     if (options.mode) {
         if ('client' === options.mode) {
-            seneca.translate('sys:config,set:kind', 'sys:remote-config');
-            seneca.translate('sys:config,get:kindmap', 'sys:remote-config');
-            seneca.translate('sys:config,set:config', 'sys:remote-config');
-            seneca.translate('sys:config,get:config', 'sys:remote-config');
+            seneca.translate('sys:config,set:kind', 'remote:sys-config,sys:null');
+            seneca.translate('sys:config,get:kindmap', 'remote:sys-config,sys:null');
+            seneca.translate('sys:config,set:config', 'remote:sys-config,sys:null');
+            seneca.translate('sys:config,get:config', 'remote:sys-config,sys:null');
         }
         else if ('server' === options.mode) {
-            seneca.translate('sys:remote-config', 'sys:config');
+            // Listen for `remote:sys-config`
+            seneca.translate('remote:sys-config', 'sys:config,remote:null');
         }
     }
     // TODO: Joi validation

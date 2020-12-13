@@ -45,14 +45,17 @@ function config(options: any) {
     .message('set:config', set_config)
     .message('get:config', get_config)
 
+  // console.log('CONFIG OPTS', options, seneca)
+
   if (options.mode) {
     if ('client' === options.mode) {
-      seneca.translate('sys:config,set:kind', 'sys:remote-config')
-      seneca.translate('sys:config,get:kindmap', 'sys:remote-config')
-      seneca.translate('sys:config,set:config', 'sys:remote-config')
-      seneca.translate('sys:config,get:config', 'sys:remote-config')
+      seneca.translate('sys:config,set:kind', 'remote:sys-config,sys:null')
+      seneca.translate('sys:config,get:kindmap', 'remote:sys-config,sys:null')
+      seneca.translate('sys:config,set:config', 'remote:sys-config,sys:null')
+      seneca.translate('sys:config,get:config', 'remote:sys-config,sys:null')
     } else if ('server' === options.mode) {
-      seneca.translate('sys:remote-config', 'sys:config')
+      // Listen for `remote:sys-config`
+      seneca.translate('remote:sys-config', 'sys:config,remote:null')
     }
   }
 
@@ -198,7 +201,7 @@ function config(options: any) {
 }
 
 const intern = (module.exports.intern = {
-  resolve_source_value: async function (
+  resolve_source_value: async function(
     seneca: any,
     cs: ConfigSpec,
     sourcemap: any,
@@ -234,7 +237,7 @@ const intern = (module.exports.intern = {
     return source_value
   },
 
-  resolve_source: async function (
+  resolve_source: async function(
     seneca: any,
     cs: ConfigSpec,
     source: {
