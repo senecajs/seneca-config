@@ -1,3 +1,7 @@
+NOTE: replaced by https://github.com/senecajs/SenecaConfig
+
+
+
 # @seneca/config 0.1.0
 
 [![npm version](https://badge.fury.io/js/%40seneca%2Fconfig.svg)](https://badge.fury.io/js/%40seneca%2Fconfig)
